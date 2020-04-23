@@ -5,7 +5,7 @@ stages:
 build-staging:
   stage: build
   script:
-    - echo "$GIT_CI_PASSWORD" | docker login $GIT_CI_REGISTRY --username $GIT_CI_USERNAME --password-stdin #
+    - docker login -u $GIT_CI_USERNAME -p $GIT_CI_PASSWORD $GIT_CI_REGISTRY
     - docker build -t $GIT_CI_IMAGE_REGISTRY .
     - docker tag $GIT_CI_IMAGE_REGISTRY $GIT_CI_IMAGE_REGISTRY:$CI_COMMIT_SHA
     - docker push $GIT_CI_IMAGE_REGISTRY:$CI_COMMIT_SHA
@@ -34,7 +34,7 @@ deploy-staging:
 build-production:
   stage: build
   script:
-    - echo "$GIT_CI_PASSWORD" | docker login $GIT_CI_REGISTRY --username $GIT_CI_USERNAME --password-stdin #
+    - docker login -u $GIT_CI_USERNAME -p $GIT_CI_PASSWORD $GIT_CI_REGISTRY
     - docker build -t $GIT_CI_IMAGE_REGISTRY .
     - docker tag $GIT_CI_IMAGE_REGISTRY $GIT_CI_IMAGE_REGISTRY:$CI_COMMIT_SHA
     - docker push $GIT_CI_IMAGE_REGISTRY:$CI_COMMIT_SHA
