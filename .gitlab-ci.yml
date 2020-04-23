@@ -22,7 +22,7 @@ deploy-staging:
   script:
     - cd /home/argocd-demo/applications/staging/
     - kustomize edit set image $GIT_CI_IMAGE_REGISTRY:$CI_COMMIT_SHA
-    - cat kustomization.yaml # show data change
+    - cat kustomization.yaml
     - git add .
     - git commit -m "Staging image update to version latest"
     - git push origin master
@@ -51,7 +51,7 @@ deploy-production:
   script:
     - cd /home/argocd-demo/applications/production/
     - kustomize edit set image $GIT_CI_IMAGE_REGISTRY:$CI_COMMIT_SHA
-    - cat kustomization.yaml # show data change
+    - cat kustomization.yaml
     - git add .
     - git commit -m "Production image update to version latest"
     - git push origin master
