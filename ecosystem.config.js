@@ -6,8 +6,8 @@ module.exports = {
       instances : 2,
       script: "nuxt-start",
       watch: true,
-      out_file: "/dev/null",
-      error_file: "/dev/null",
+      out_file: "/var/log/nuxt-app-out.log",
+      error_file: "/var/log/nuxt-app-error.log",
       env: {
         "HOST": "0.0.0.0",
         "PORT": 3000,
@@ -20,8 +20,8 @@ module.exports = {
       instances : 2,
       script: "nuxt-start",
       watch: true,
-      out_file: "/dev/null",
-      error_file: "/dev/null",
+      out_file: "/var/log/nuxt-staging-app-out.log",
+      error_file: "/var/log/nuxt-staging-app-error.log",
       env: {
         "HOST": "0.0.0.0",
         "PORT": 3000,
